@@ -1,0 +1,203 @@
+# File:		design3.txt
+# Author:	Mitchell Angelos
+# Date:		5/3/19
+# Section:	12
+# E-mail:	a242@umbc.edu
+# Description:
+#	This is a design document for a Minesweeper game.
+
+
+
+# 	CONSTANTS
+
+# for the board
+BORDER =		"#"
+UNKNOWN_FIELD = 	"."
+ISLAND =      		" "
+FLAGGED = 		"F"
+MINE = 			"*"
+DETONATED_MINE = 	"X"
+MINES_LEFT =   		" mines(s) remain."
+FLAG_REMOVED_AT	 = 	"Flag removed at: "
+
+# board from file
+GET_FILE =    	    	 "Enter the file to load the board from: "
+READ_FILE =   		 "r"
+
+# taking moves
+GET_ROW =		"Please enter a row: "
+GET_COL = 		"Please enter a column: "
+INVAL_NUM = 		"This number is not valid. Please enter a valid number."
+ENTER_R = 		"Enter 'r' to reveal the space, or"
+ENTER_F = 		"Enter 'f' to flag the space: "
+REVEAL_SPACE = 		"r"
+FLAG_SPACE = 		"f"
+INVAL_ACTION = 		"\tThat is not a valid action."
+FLAGGED_NO_REVEAL = 	"\tThis move is flagged! Unflag it to reveal the space!"
+ALREADY_REVEALED = 	"\tThis spot is already revealed."
+AV_NO_FLAG = 	 	"This field is already revealed. It cannot be flagged."
+
+# game win/loss
+GAME_WON =		1
+GAME_NOT_OVER = 	0
+YOU_WON =     		"\tYou won!"
+YOU_LOST =    	     	"\tYou detonated a mine, you lost!"
+
+
+
+
+
+
+#	 FUNCTIONS
+
+################################################################
+# printBoard() prints the board with row and column labels,
+# 	       and spaces the board out so that it looks square
+# Input:       board; the rectangular 2d gameboard to print
+# Output:      None; prints the board in a pretty way
+
+##################################################################
+# populateBoard(): puts the unknown fields on the displayBoard
+# Parameters:	   displayboard; the current display board
+# 		   board; the hidden board
+# Output:	   displayBoard; the displayBoard, now filled
+
+#######################################################################
+0;136;0c# setCoordinate(): sets a coordinate on the board at row, col
+# Parameters:	   board; the current board
+# 		   row; the row coordinate
+#		   col; the column coordinate
+#		   symbol; the smbol to be placed
+# Output:	   returnBoard; the board with the coordinate now on it
+
+########################################################################
+# convertBoard(): rids of the "\n" on each line
+# Parameters:	  board; the board the rid \n out of each line
+# Output:	  newBoard; the board, without the \n's
+
+#########################################################################
+# getBoard(): retrieves the board from the file the user wants to play
+# Parameters: None;
+# Output:     board; the board to be stored by the user
+
+##########################################################################
+# getUserCoordinate(): gets the coordinate the user wants to play
+# Parameters:	       inclusiveRow; the row limit (INCLUSIVE)
+# 		       inclusiveCol; the column limit (INCLUSIVE)
+# Output:	       a list, len 2, of the row and column to play
+
+########################################################################
+# getMinesLeft(): prints the amount of mines left to flag on the board
+# Parameters:	  disp; the display board
+# 		  hidden; the hidden board
+# Output:	  None; the result is printed
+
+########################################################################
+# playMove(): plays the move the user wants to play, reveals islands
+# Parameters: disp; the display board
+# 	      hidden; the hidden board to compare disp to
+#	      coord; the coordinate to play
+# Output:     disp; the updated display board
+
+#############################################################
+# getTotalMines(): finds the total amount of mines on board
+# Parameters:	   board; the board to find mines on
+# Output:	   totalMines; the total amount of mines
+
+###########################################################################
+# checkForLoss(): checks if the game is still going, lost, or won
+# Parameters:	  disp; the display boar
+# 		  hidden; the hidden board
+#		  mines; the amount of mines
+# Output:	  1 if won, 0 if game is still going, a list length 2
+# 		  with the coordinate of where the detonated mine is
+
+###########################################################################
+# findHints(): finds where hints are needed and sets them on the board
+# Parameters:  board; the board to find the hints on
+# Output:      the board, now with hints on it!
+
+###########################################################################
+# checkCircleAround(): helper function for findHints, finds hint value at
+# 		       (row, col)
+# Parameters:	       board; the board to find hints at
+# 		       row; the row
+#		       col; the column
+# Output:	       hint; the hint integer
+
+############################################################################
+# breakUpBoard(): breaks up the string board into individual characters for
+# 		  easier setting of the board
+# Parameters:	  board; the board to break up
+# Output:	  newBoard; a broken up board
+
+##############################################################################
+# repairBoard(): repairs the board back into string form
+# Parameters:	 broken; the broken board
+# Output:	 newBoard; the repaired board
+
+##############################################################################
+# endGame():  prints the board, prints win/loss message
+# Parameters: winner; the win/loss value
+# 	      board; the board to be printed
+# Output:     None
+
+##############################################################################
+# getCoordinatesToSwap(): Finds the coordinates of the islands and
+# 			  some hints to reveal
+# Parameters:		  disp; the BROKEN UP display board
+# 			  board; the hidden board to compare it to
+#			  coord; a list, len 2, of coordinate value
+# Output:		  swap; a list full of coordinate lists (len
+# 			  2) for values to reveal
+
+###############################################################################
+# updateHintBorders(): updates the borders that haven't been revealed
+# Parameters:	       disp; the display board
+# 		       hidden; the hidden board
+# Output:	       the board, with updated hint reveals
+
+###############################################################################
+# recursiveIslandReveal(): A recursive function that reveals all islands
+# Parameters:		   coordinates; a list full of coordinates to reveal
+# 			   disp; the display board, BROKEN UP
+#			   hidden; the hidden board
+# Output:		   the boardm now updated with revealed islands
+
+
+
+
+
+
+
+# 	 MAIN PSEUDOCODE
+
+  # gets board to play
+   # call getBoard()
+  # makes a second copy of the board for display use
+   # make a deep copy of the board
+  # populates the display board with contents from the hidden board
+   # call populateBoard()
+  # find total number of mines on board
+   # call getTotalMines()
+  # find hints and put them on the hidden board
+   # call findHints()
+  # while the game is still going
+    	  # print the board
+	   # call printBoard()
+	  # find the amount of mines left to show the user
+	   # call getMinesLeft()
+	  # get user coordinate to play on board
+	   # call getUserCoordinate()
+	  # play move at said coordinate
+	   # call playMove()
+	    # IN HERE IS THE RECURISVE ISLAND REVEAL FUNCTION CALL
+	  # update the displayBoard's hint borders
+	   # call updateHintBorders()
+	  # check for a win or loss
+	   # call checkForLoss
+	  # check if the game is over
+	   # if so, end game loop, and check if the game was lost
+	    # if it was lost, set a coordinate on the display board where the detonated mine is
+  # display board and print win/loss message
+   # call endGame()

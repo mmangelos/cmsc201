@@ -1,0 +1,15 @@
+######################################################################
+# printBoard() prints the Reversi board with the right headings
+# Parameters:  board; a 2D list of single-char strings (X, O, _)
+# Output:      None
+def printBoard(board):
+
+    print()
+    # print header
+    print("_|0|1|2|3|4|5|6|7")
+
+    # print each row
+    # for example: 3|_|_|_|X|O|_|_|_|
+    for i in range(len(board)):
+        print(str(i) + "|" + "|".join(board[i]) )
+        

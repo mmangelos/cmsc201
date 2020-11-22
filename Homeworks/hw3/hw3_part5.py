@@ -1,0 +1,25 @@
+# File:        hw3_part5.py
+# Author:      Mitchell Angelos
+# Date:        2/25/19
+# Section:     12
+# E-mail:      a242@umbc.edu
+# Description: This program prints numbers from 1 to 110, but prints special
+#              messages in special cases. (so fizzbuzz?)
+
+END_NUM = 110 #the last number printed out. loop finishes at this number
+
+def main():
+
+    numberUsed = 1 #the number used to do the math in the while loop
+    while numberUsed <= END_NUM:
+        if numberUsed % 15 == 0:
+            print("Threeve. A combination of three and five. Simply stunning.")
+        elif numberUsed % 5 == 0:
+            print("Why were there only five golden rings?")
+        elif numberUsed % 3 == 0:
+            print("Octopodes have three hearts.")
+        else:
+            print(str(numberUsed))
+        numberUsed += 1
+
+main()

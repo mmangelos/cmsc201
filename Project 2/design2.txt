@@ -1,0 +1,141 @@
+# File:		design2.txt
+# Author:	Mitchell Angelos
+# Date:		4/12/19
+# Section:	12
+# E-mail:	a242@umbc.edu
+# Description:
+#	This is a design document for a program on a game of Reversi,
+#	containing functions, constants and an outline of main().
+
+#	     	CONSTANTS:
+
+# for the board
+TURN_X			= "X"
+TURN_O			= "O"
+EMPTY_SPACE		= "_"
+BORDER_CHAR		= "|"
+BOARD_LENGTH		= 8
+CURRENT_BOARD_STR	= "Current board state: "
+INITIAL_COORD_X 	= 3
+INITIAL_COORD_Y 	= 3
+END_INIT_COORD		= 5
+
+# directions
+D_UP			= "UP"
+D_DOWN			= "DOWN"
+D_LEFT			= "LEFT"
+D_RIGHT			= "RIGHT"
+DIRECTION_INDEX		= 2
+
+# taking moves
+GET_MOVE		= "Please enter a valid move: "
+VALID_MOVES_FOLLOW	= "Here are your valid moves: "
+MOVE_IS_INVALID		= "The move you just entered is not valid. Valid moves are: "
+FIRST_NUM_PLACE		= 0
+SECOND_NUM_PLACE	= 2
+MAX_MOVE_LEN		= 3
+SPACE_INDEX		= 1
+
+# prominent strings
+SPACE_KEY		= " "
+BOARD_HEADER		= "_|0|1|2|3|4|5|6|7"
+CPU_TAKES_MOVE		= "CPU takes move:"
+PLAYER_SCORE		= "Player score:"
+COMPUTER_SCORE		= "Computer score:"
+WINS_STR		= " wins!"
+
+#		FUNCTIONS:
+
+##################################################################
+# printBoard()	prints the Reversi board with the right headings
+# Parameters:	board; a 2D list of single-char settings (X, O, _)
+# Output:	None
+
+##################################################################
+# createBoard() creates the Reversi board filled with empty spaces
+# Parameters:   None
+# Output:	board; the 2D list containing the new, clean board
+
+######################################################################
+# setCoordinates() sets a coordinate on the Reversi board to a certain
+# 		   symbol
+# Parameters:	   x; the row to access
+# 		   y; the column to access
+#		   turn; the symbol to set this coordinate to
+#		   board; the current Reversi board
+# Output:	   None
+
+######################################################################
+# setTurn()	sets the symbol to the opposite symbol
+# Parameters:	currentTurn; the current symbol
+# Output:	the opposite turn
+
+######################################################################
+# addInitialTurns() a helper function that adds the four initial
+# 		    symbols to the middle of the board
+# Parameters:	    board; the current Reversi board
+# Output:	    None
+
+######################################################################
+# returnMoves()	gets the valid moves able to be played
+# Parameters:	board; the current Reversi board
+# 		turn;  the symbol to be checking valid turns for
+#		oppTurn; the opposite symbol
+# Output:	a list of valid moves
+
+######################################################################
+# getChoices() condensces the information from returnMoves() for
+# 	       easy checks
+# Parameters:  validMoves; a list full of the valid moves
+# Output:      a list full of ONLY coordinates of valid moves
+
+######################################################################
+# getMove()	gets the move the user wants to play
+# Parameters:	validMoves; the valid moves the user can take
+# Output:	a list consisting of the coordinates to play and other info
+
+######################################################################
+# flipPieces()	flips the necessary pieces on the board
+# Parameters:	board; the current Reversi board
+# 		turn; the current turn
+#		oppTurn; the opposite turn
+#		move; a list with the move coordinates and extra info
+# Output:	None
+
+########################################################################
+# playComputerMove() plays the computer move
+# Parameters:	     board; the current Reversi board
+# 		     moves; the valid moves for the computer
+# Output:	     IF THE CPU HAS NO VALID MOVES, it returns a boolean
+# 		     value of False to show the CPU has lost
+
+########################################################################
+# endGame()	Ends the game and prints the results
+# Parameters:	board; the current Reversi board
+# 		winner; the winner's symbol
+# Output:	None
+
+# 		MAIN:
+
+# def main():
+
+    # creates board
+      # call createBoard()
+    # while the winner isnt x or o
+      # print the board
+        # call printBoard()
+      # gets the valid moves for the user
+        # call returnMoves()
+      # checks if the user has no valid moves
+        # if so, set winner to "X"
+      # if THERE ARE valid moves
+      	# gets the user's move
+	  # call getMove()
+	# flips pieces
+	  # call flipPieces()
+	# set the user's move
+	  # call setCoordinates()
+	# checks if the cpu has no valid moves, if not plays cpu move
+	  # call playComputerMove()
+    # ends game and prints results
+      # call endGame()

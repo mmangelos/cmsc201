@@ -1,0 +1,120 @@
+# File:    design1.txt
+# Author:  Mitchell Angelos
+# Date:    3/28/19
+# Section: 12
+# E-mail:  a242@umbc.edu
+# Description:
+#   This is a degisn document planning out all the necessary portions of my
+#   Hawaiian pronunciation program, including the main function psuedocode,
+#   the program's functions, and the program's constants.
+
+# info for getting choice
+ANSWERS  = ["y", "yes", "n", "no"]
+CONTINUE = "Do you want to enter another word? (y/yes/n/no): "
+
+# info about characters
+OKINA         = "'"
+VOWELS        = ["a", "e", "i", "o", "u"]
+VOWELS_SOUNDS = ["ah", "eh", "ee", "oh", "oo"]
+COMP_VOWELS   = ["ai", "ae", "ao", "au", "ei", "eu", "iu", "oi", "ou", "ui"]
+COMP_SOUNDS   = ["eye", "eye", "ow", "ow", "ay", "eh-oo", "ew", "oy", "ow",\
+	      	"ooey"]
+CONSONANTS    = ["h", "k", "l", "m", "n", "p", "w"]
+
+# prominent keywords
+W_KEYWORD     = "w"
+V_KEYWORD     = "v"
+HYPHEN	      = "-"
+SPACE_KEYWORD = " "
+
+# prominent numbers
+WORD_START_INDEX = 0
+
+#########################################################
+# getChoice() prompts and reprompts the user until
+#             they select a valid choice
+# Parameters: question; a string to be asked
+#             options; a list of string options
+# Return:     choice; a string chosen by the user
+
+###########################################################
+# getHawaiianPhrase()	prompts the user for a Hawaiian
+# 			phrase until a valid one is allowed
+# Parameters:		none
+# Return:		phrase; a string of the user's
+# 			chosen phrase
+
+#########################################################
+# pronounceW()	Determines how a w should be pronounced
+# Parameters:	word; a string of the word where 'w' is in
+# 		index; an integer index where 'w' is
+# Return:	pronunciation; a single character string
+# 		with the correct pronunciation.
+
+#########################################################
+# simpleVowel()	determines how a vowel should be pronunced
+# Parameters:	letter; a single character string vowel
+# Return:	pronunciation; a string representing how
+# 		the vowel is pronounced.
+
+#########################################################
+# complexVowel()	determines how a complex two
+# 			letter vowel is pronounced
+# Parameters:		vowels; a two char string vowel
+# Return:		pronunciation; a string with
+# 			how the complex vowel is pronounced
+
+#########################################################
+# pronounce()	determines how to pronounce an entire
+# 		phrase
+# Parameters:	phrase; a string, possible multiple
+# 		words
+# Return:	pronunciation; a string with the
+# 		complete phrase's pronunciation
+
+#########################################################
+# pronounceWord()	determines how to pronounce a
+# 			single word
+# Parameters:		word; a string, no spaces in it,
+# 			that represents the word
+# Return:		pronunciation; a string containing
+# 			the word's pronunciation
+
+#########################################################
+# endsInVowel() checks if the word given by the user ends
+# 		in a vowel or not
+# Parameters:   word; the string being checked
+# Return:	isValid; a boolean variable showing
+# 		if the word does or doesnt end in a vowel
+
+###########################################################
+# removeLastHyphen()	removes the last hyphen in a string 
+# 			if there is one
+# Parameters:		phrase; the phrase to remove the last
+# 			hyphen from
+# Return:		editedPhrase; the phrase without the
+# 			end hyphen
+
+#############################################################################
+# getListOfWords()	finds all different words in the phrase and seperates
+# 			them into a list
+# Parameters:		phrase; the entire phrase to find all the words in
+# Return:		words; a list of all the seperated words
+
+def main():
+
+    # while they don't want to quit/want to keep inputting words
+
+        # get the phrase to pronounce
+        call getHawaiianPhrase()
+	  #call upper() on getHawaiianPhrase()
+
+	# print info on "string x is pronounced as follows"
+	call print()
+	# print the pronunciation
+	call print()
+	#...then...
+	call pronounce(phrase)
+
+	# get choice for continuing or not
+	call getChoice(CONTINUE, ANSWERS)

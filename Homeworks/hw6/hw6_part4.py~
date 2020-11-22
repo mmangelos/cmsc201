@@ -1,0 +1,46 @@
+# File:        hw6_part4.py
+# Author:      Mitchell Angelos
+# Date:        4/20/19
+# Section:     12
+# E-mail:      a242@umbc.edu
+# Description: This program draws a right triangle at a specific height
+#              and drawn with two special characters
+
+GET_HEIGHT = "Please enter a height of the triangle: "
+GET_OUTLINE = "Please enter the outline symbol: "
+GET_FILL = "Please enter the fill symbol: "
+
+def recursiveTri(height, place, out, fill, isTop):
+
+    # if this is the first row
+    if isTop == True:
+        # if it's the end of the line
+        if height == place:
+            print(out)
+            return recursiveTri(height - 1, 1, out, fill, False)
+        # if it's not end of line
+        print(out,end="")
+        return recursiveTri(height, place + 1, out, fill, True)
+    # after last row, it returns to stop.
+    if height == 0:
+        return
+    # if the place of the row is the len of the row's len
+    if height == place:
+        print(out)
+        return recursiveTri(height - 1, 1, out, fill, False)
+    # if it's the start of the row
+    if place == 1:
+        print(out, end="")
+    # if it's anywhere else where the triangle needs the fill
+    else:
+        print(fill, end="")
+    return recursiveTri(height, place + 1, out, fill, False)
+    
+def main():
+
+    height = int(input(GET_HEIGHT))
+    outline = input(GET_OUTLINE)
+    fill = input(GET_FILL)
+    recursiveTri(height, 1, outline, fill, True)
+
+main()

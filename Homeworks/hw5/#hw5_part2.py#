@@ -1,0 +1,19 @@
+# File:        hw5_part2.py
+# Author:      Mitchell Angelos
+# Date:        3/11/19
+# Section:     12
+# E-mail:      a242@umbc.edu
+# Description: tbf
+#
+
+PAST_TENSE_KEYWORD = "ed"
+
+def main():
+
+    userEntry = input("Tell me something: ")
+    countPastTense(userEntry)
+
+def countPastTense(phrase):
+    
+
+main()

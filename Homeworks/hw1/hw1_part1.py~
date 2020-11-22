@@ -1,0 +1,21 @@
+# File:        hw1_part1.py
+# Author:      Mitchell Angelos
+# Date:        2/9/19
+# Section:     Section 12
+# E-mail:      a242@umbc.edu
+# Description: tbf
+
+def main():
+
+    numMonitors = int(input("Set a number value for a variable called numMonitors: "))
+    numMice = int(input("Set a number value for a variable called numMice: "))
+    numEmptyBottles = int(input("Set a number value for a variable called numEmptyBottles: "))
+    numTotalItems = numMonitors + numMice + numEmptyBottles
+    
+    print("You have", numMonitors, "monitors on your desk.")
+    print("You have", numMice, "mice on your desk.")
+    print("You have", numEmptyBottles, "empty bottles on your desk.")
+    print("You have", numTotalItems, "items on your desk.")
+
+
+main()

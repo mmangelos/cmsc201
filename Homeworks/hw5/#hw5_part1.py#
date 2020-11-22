@@ -1,0 +1,37 @@
+# File:        hw5_part1.py
+# Author:      Mitchell Angelos
+# Date:        3/11/19
+# Section:     12
+# E-mail:      a242@umbc.edu
+# Description: tbf
+#
+
+def main():
+
+    # gets the name from the user
+    userName = input("Enter your name: ")
+    getInitials(userName)
+
+############################################################
+# getInitials() Prints the initials of a given name
+# Parameters:   name; a string containing the given name
+# Return:       None
+def getInitials(name):
+
+    count = 1
+    initialsList = []
+    initialsList.append(name[count - 1: count])
+    while count < len(name) - 1:
+        if name[count : count + 1] == " ":
+            initialsList.append(name[count + 1 : count + 2])
+        count += 1
+        
+    count = 0
+    print("Your initials are ", end="")
+    while count < len(initialsList):
+        print(initialsList[count] + ".", end="")
+        count += 1
+        
+    print("")
+
+main()

@@ -1,0 +1,48 @@
+# File:        hw6_part1.py
+# Author:      Mitchell Angelos
+# Date:        4/20/19
+# Section:     12
+# E-mail:      a242@umbc.edu
+# Description:
+#    This program checks if a string from the user is a palindrome under
+#    a certain amount of allowable faults.
+
+# inputs
+INPUT_WORD = "Input a word: "
+INPUT_FAULTS = "Input number of permitted faults: "
+# end printing
+LOOKS_GOOD = "Looks good."
+NOT_PALIN = "That's not a palindrome."
+
+#################################################################
+# isFaultyPalindrome() determies if a string is a palindrome
+# Input:  word; a string that this function will assess
+#         faultsPermitted; an integer representing the maximum
+#         tolerated faults in word
+# Output: True if the word is a palindrome with at most
+#         faultsPermitted faults, False otherwise
+def isFaultyPalindrome(word, faultsPermitted):
+
+    if faultsPermitted <= -1:
+        return False
+    half = len(word) // 2
+    print("Faults permitted right now:", faultsPermitted)
+    print("Half:", half)
+    print("First half of word:", word[:half+1])
+    print("Second half of word:", word[half:len(word)][::-1])
+    if word[:half + 1] == word[half:len(word)][::-1]:
+        return True
+    return isFaultyPalindrome(word[:len(word) - 1], faultsPermitted - 1)
+
+def main():
+
+    word = input(INPUT_WORD)
+    faults = int(input(INPUT_FAULTS))
+
+    isFaulty = isFaultyPalindrome(word, faults)
+    if isFaulty == True:
+        print(LOOKS_GOOD)
+    else:
+        print(NOT_PALIN)
+
+main()
